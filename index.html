@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <style> body {padding: 0; margin: 1;} </style>
+    <script src="p5.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <script src="addons/p5.dom.min.js"></script>
+    <script src="addons/p5.sound.min.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css"
+                    href="https://fonts.googleapis.com/css?family=Abel">
+      <style>
+        body {
+          font-family: 'Abel', serif;
+          font-size: 48px;
+        }
+        input {border: 1px dotted #ccc; background: white; font-family: 'Abel', serif; padding: 10px 20px; font-size: 18px; margin: 5px 5px 5px 0; color: black;}
+            input:focus { background-color:lavender; outline: none;}
+
+            .slider {
+      -webkit-appearance: none;
+      width: 300;
+      height: 2px;
+      border-radius: 1px;
+      background: #e6edf7;
+      outline: none;
+      opacity: 0.4;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #34b1eb;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+      </style>
+  </head>
+    <!-- this line removes any default padding and style. you might only need one of these values set. -->
+
+
+
+  <body>
+    <div> <p>Distancing</p></div>
+    <div id = "container"></div>
+    <div style = "font-family: Abel; font-size: 50%; width: 100%"><p>
+      A simple illustration of the impact of social distancing to control the spread of an epidemics.</br>
+      Each unit has a probability p to transmit the <span style = "color: #0099CC"> virus </span> to a nearby unit. Such probability depends moreover on the distance between the units.</br>
+      Each unit has a recovery time, after which a period of <span style = "color: #ffc266">immunization </span> begins.</br>
+      Each unit has a probability of dying, which depends also on the total number of infected units. This reasonably mimics the consequence of burdening the health care system.</br>
+      The curve represents the number of infected, hence possibly ill, units during a given window of time. </br>
+      Move the slider to modify the distance between units.
+      <div id="data">
+        <svg id="curve" width ="400" heigth = "100">
+
+      </svg>
+      <input type="range" name="mySlider" id="mySlider" class="slider" min="2" max="40" value="5">
+  <span>Time:</span> <span id="time" style="font-size: 80%"></span><span style ="color: #0099CC"> Infected:</span> <span id="infected" style="font-size: 80%">
+  </span><span> Deaths:</span> <span id="deaths" style="font-size: 80%">
+  </input>
+      </div>
+    </div>
+    <script src="sketch.js"></script>
+    <script src="System.js"></script>
+    <script src="Ball.js"></script>
+  </body>
+</html>
